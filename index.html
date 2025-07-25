@@ -60,7 +60,6 @@
     </p>
     <button id="applyBtn">🔘 Apply for position</button>
     <div id="gmButtonWrap">
-      <!-- The GM Button for Ethereum (network 1) -->
       <div 
         class="gm-button" 
         data-network="1"
@@ -71,21 +70,35 @@
     </div>
   </div>
   <script>
-    // Load the onchaingm script only once
-    (function() {
+    // Function to load the onchaingm script only once
+    function loadOnChainGMScript(callback) {
       if (!document.getElementById('onchaingm-embed')) {
         var script = document.createElement('script');
         script.id = 'onchaingm-embed';
         script.src = "https://onchaingm.com/embed.js";
         script.async = true;
+        script.onload = callback;
         document.body.appendChild(script);
+      } else if (typeof callback === "function") {
+        callback();
       }
-    })();
+    }
 
     // Show the GM button on click
     document.getElementById('applyBtn').addEventListener('click', function() {
-      document.getElementById('gmButtonWrap').style.display = 'flex';
+      var wrap = document.getElementById('gmButtonWrap');
+      wrap.style.display = 'flex';
+
+      // Ensure the script is loaded (or already loaded)
+      loadOnChainGMScript(function() {
+        // Some widgets require manual initialization after being revealed
+        // If onchaingm.com exposes a function, call it here.
+        // Example: if (window.onChainGM) window.onChainGM.init();
+      });
     });
+
+    // Optionally, load the script at page load (comment out if you prefer lazy load)
+    // loadOnChainGMScript();
   </script>
 </body>
 </html>
