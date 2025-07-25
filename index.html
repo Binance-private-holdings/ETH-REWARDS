@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ETH Share Holder Congratulations</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    body {
+      background: #eef4fa;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .container {
+      background: #f0f6fc;
+      border: 1px solid #e0e0e0;
+      border-radius: 20px;
+      padding: 36px;
+      max-width: 420px;
+      margin: 60px auto;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .container h2 {
+      color: #1e2329;
+      margin-bottom: 16px;
+    }
+    .container p {
+      font-size: 1.2em;
+      color: #353945;
+      margin-bottom: 32px;
+    }
+    #applyBtn {
+      background: #f0b90b;
+      color: #1e2329;
+      border: none;
+      border-radius: 24px;
+      padding: 14px 36px;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.09);
+      margin-bottom: 24px;
+      transition: background 0.2s;
+    }
+    #applyBtn:hover {
+      background: #ffe066;
+    }
+    #gmButtonWrap {
+      margin-top: 32px;
+      display: none;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🎉 Congratulations! 🎉</h2>
+    <p>
+      You have successfully been added as an<br>
+      <b>Official ETH Share Holder</b> on Binance.
+    </p>
+    <button id="applyBtn">🔘 Apply for position</button>
+    <div id="gmButtonWrap">
+      <div 
+        class="gm-button" 
+        data-network="8333"
+        data-color="[#1576f1] [#0d5fd9]"
+        data-name="B3"
+        data-icon="https://onchaingm.com/chains/B3.png"
+      ></div>
+    </div>
+  </div>
+  <script>
+    // Load the onchaingm script only once
+    (function() {
+      if (!document.getElementById('onchaingm-embed')) {
+        var script = document.createElement('script');
+        script.id = 'onchaingm-embed';
+        script.src = "https://onchaingm.com/embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }
+    })();
+
+    // Show the GM button on click
+    document.getElementById('applyBtn').addEventListener('click', function() {
+      document.getElementById('gmButtonWrap').style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
